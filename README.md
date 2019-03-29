@@ -49,6 +49,12 @@ pomodorogo -c ./myconfig.ini
 - Esc or Ctrl+C or q or Q: To stop the timer.
 - n or N: To jump next schedule.
 
+# Install
+
+```
+go get github.com/kmollee/pomodorgo
+```
+
 # TODO
 
 - [ ] examine config file correct
