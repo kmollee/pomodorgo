@@ -8,7 +8,7 @@ inspire from [countdown](https://github.com/antonmedv/countdown)
 
 ## Usage
 
-Pomodorogo run with config file.
+Pomodorogo run with config file `pomodorogo.ini`.
 
 Config file must have `schedule` field to define what sections going to run
 
