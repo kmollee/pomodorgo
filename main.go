@@ -28,7 +28,7 @@ time = 5s
 time = 5s
 cmd = echo "hello world"
 	`
-	defaultConfigPath = "./config.ini"
+	defaultConfigPath = "./pomodorogo.ini"
 )
 
 type Window struct {
