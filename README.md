@@ -4,17 +4,28 @@
 
 Pomodorogo: A configurable pomodoro timer write in go
 
-inspire from [countdown](https://github.com/antonmedv/countdown)
+inspired by [countdown](https://github.com/antonmedv/countdown)
 
 ## Usage
+
+to run pomodorogo timer(first time start will automatic create config for you)
+
+```sh
+pomodorogo
+```
+
+with custom config file path
+
+```sh
+pomodorogo -c ./myconfig.ini
+```
+
 
 Pomodorogo run with config file `pomodorogo.ini`.
 
 Config file must have `schedule` field to define what sections going to run
 
-each section must specific time, otherwise we don't know when to end
-
-section can define `cmd`, that will run when section is start
+Each section must specific time, and section can define `cmd`, that will run when section is start and terminate when end
 
 below is an example config file
 
@@ -30,17 +41,6 @@ time = 5m
 cmd = firefox github.com
 ```
 
-to run pomodorogo timer(first time start will automatic create config for you)
-
-```sh
-pomodorogo
-```
-
-with custom config file path
-
-```sh
-pomodorogo -c ./myconfig.ini
-```
 
 # Key binding
 
