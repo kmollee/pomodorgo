@@ -52,7 +52,7 @@ cmd = firefox github.com
 # Install
 
 ```
-go get github.com/kmollee/pomodorgo
+go get github.com/kmollee/pomodorogo
 ```
 
 # TODO
