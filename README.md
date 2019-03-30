@@ -8,7 +8,7 @@ inspired by [countdown](https://github.com/antonmedv/countdown)
 
 ## Usage
 
-to run pomodorogo timer(first time start will automatic create config for you)
+to run pomodorogo timer(first time launch will automatic create config for you at `~/pomodorgo.ini`)
 
 ```sh
 pomodorogo
@@ -21,7 +21,7 @@ pomodorogo -c ./myconfig.ini
 ```
 
 
-Pomodorogo run with config file `pomodorogo.ini`.
+Pomodorogo run with config file `pomodorgo.ini`.
 
 Config file must have `schedule` field to define what sections going to run
 
