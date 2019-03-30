@@ -2,6 +2,8 @@
 
 > "Pomodoro" is a time management method
 
+![demo](images/pomodorogo.gif)
+
 Pomodorogo: A configurable pomodoro timer write in go
 
 inspired by [countdown](https://github.com/antonmedv/countdown)
