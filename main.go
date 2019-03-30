@@ -19,14 +19,18 @@ const (
 	frameDuration = time.Second / renderFPS
 
 	configSample = `
-schedule = section break
-
-[break]
-time = 5s
+# schedule contain sections and pomodorogo run schedule's sections in orders
+schedule = section short-break section short-break section long-break
 
 [section]
-time = 5s
-cmd = echo "hello world"
+time = 25m
+# cmd = mpv --loop woogie_boogie_pinao.mp3
+
+[short-break]
+time = 5m
+
+[long-break]
+time = 15m
 	`
 	defaultConfigName = "pomodorogo.ini"
 )

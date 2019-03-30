@@ -30,15 +30,18 @@ Each section must specific time, and section can define `cmd`, that will run whe
 below is an example config file
 
 ```ini
-schedule = section break break
-
+# schedule contain list of section
+schedule = section short-break section short-break section long-break
 
 [section]
 time = 25m
+# cmd = mpv --loop woogie_boogie_pinao.mp3
 
-[break]
+[short-break]
 time = 5m
-cmd = firefox github.com
+
+[long-break]
+time = 15m
 ```
 
 
