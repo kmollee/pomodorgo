@@ -28,7 +28,7 @@ time = 5s
 time = 5s
 cmd = echo "hello world"
 	`
-	defaultConfigName = "pomodorgo.ini"
+	defaultConfigName = "pomodorogo.ini"
 )
 
 func main() {
@@ -112,23 +112,26 @@ loop:
 			select {
 			case ev := <-queues:
 				if ev.Type == termbox.EventKey && (ev.Key == termbox.KeyEsc || ev.Key == termbox.KeyCtrlC) {
+					// exit
 					s.stop()
 					break loop
 				}
-				if ev.Ch == 'p' || ev.Ch == 'P' {
+				switch ev.Ch {
+				case 'p', 'P':
+					// pause
 					clock.pause()
-				}
-				if ev.Ch == 'c' || ev.Ch == 'C' {
+				case 'c', 'C':
+					// contine
 					clock.start()
-				}
-				if ev.Ch == 'n' || ev.Ch == 'N' {
+				case 'n', 'N':
+					// next section, stop current section
 					err := s.stop()
 					if err != nil {
 						log.Println("could not stop")
 					}
 					continue loop
-				}
-				if ev.Ch == 'q' || ev.Ch == 'Q' {
+				case 'q', 'Q':
+					// exit
 					s.stop()
 					break loop
 				}

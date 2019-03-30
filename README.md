@@ -21,7 +21,7 @@ pomodorogo -c ./myconfig.ini
 ```
 
 
-Pomodorogo run with config file `pomodorgo.ini`.
+Pomodorogo run with config file `pomodorogo.ini`.
 
 Config file must have `schedule` field to define what sections going to run
 
