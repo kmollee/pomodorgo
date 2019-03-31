@@ -1,14 +1,11 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"time"
 )
-
-// const (
-// 	breakFont = "BREAK"
-// )
 
 var pauseFont Text
 
@@ -41,15 +38,19 @@ func newClock(title Text, duration time.Duration) *Clock {
 	return c
 }
 
-func (c *Clock) run() {
+func (c *Clock) run(ctx context.Context) {
 	go func() {
 		t := time.Tick(time.Second)
 		for {
-			<-t
-			// only clock is not freeze, when check time is over
-			if !c.freeze && time.Now().After(c.deadline) {
-				c.done <- struct{}{}
-				break
+			select {
+			case <-t:
+				// only clock is not freeze, then check time is reach deadline
+				if !c.freeze && time.Now().After(c.deadline) {
+					c.done <- struct{}{}
+					break
+				}
+			case <-ctx.Done():
+				return
 			}
 		}
 	}()

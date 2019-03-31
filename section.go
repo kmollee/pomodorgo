@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"log"
 	"os"
 	"os/exec"
@@ -15,6 +16,8 @@ type Section struct {
 	duration time.Duration
 	cmd      string
 	process  *os.Process
+	ctx      context.Context
+	cancel   context.CancelFunc
 }
 
 func (s *Section) createClock() (*Clock, error) {
@@ -24,7 +27,7 @@ func (s *Section) createClock() (*Clock, error) {
 	}
 
 	clock := newClock(title, s.duration)
-	clock.run()
+	clock.run(s.ctx)
 	return clock, nil
 }
 
@@ -58,6 +61,8 @@ func (s *Section) stop() error {
 	if s.process != nil {
 		return s.process.Kill()
 	}
+	// stop goroutine
+	s.cancel()
 	return nil
 }
 
@@ -67,5 +72,12 @@ func newSection(title, timeText, cmd string) (*Section, error) {
 		return nil, errors.Wrap(err, "could not parsing time")
 	}
 
-	return &Section{title: title, duration: duration, cmd: cmd}, nil
+	ctx, cancel := context.WithCancel(context.Background())
+	return &Section{
+		title:    title,
+		duration: duration,
+		cmd:      cmd,
+		ctx:      ctx,
+		cancel:   cancel,
+	}, nil
 }

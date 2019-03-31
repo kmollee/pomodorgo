@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/nsf/termbox-go"
-	"gopkg.in/ini.v1"
+	termbox "github.com/nsf/termbox-go"
+	ini "gopkg.in/ini.v1"
 )
 
 const (

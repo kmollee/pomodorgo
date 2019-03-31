@@ -1,6 +1,6 @@
 package main
 
-import "github.com/nsf/termbox-go"
+import termbox "github.com/nsf/termbox-go"
 
 type Window struct {
 	width, height int
